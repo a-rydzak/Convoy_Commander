@@ -1,4 +1,34 @@
 Rails.application.routes.draw do
+ 
+
+
+
+#-------------- Landing Page With Regristration and Login Routes
+  root 'sessions#new'
+  get 'Convoy-Commander' => 'sessions#new'
+  post 'users/new' => 'sessions#make_user'
+  post 'login'=> 'sessions#login'
+  get 'convoy' => 'convoys#convoy_page'
+#-------------- Convoy Page 
+post 'convoys' => 'convoys#create_convoy'
+get 'convoy/:id' => 'convoys#specefic_convoy'
+#-------------- Plans
+post 'plans/:id' => 'plans#update_plan'
+
+
+
+#-------------- Normal Restful Routes
+#get "products" => "products#index"            #A page that displays all the products.
+#get "products/new" => "products#new"          #A page that allows the user to add a new product
+#post "products" => "products#create"          #A URL that processes information submitted from the new page to create a product        
+#get "products/:id" => "products#show"         #A page that displays information for the product with an id of 2
+#get "products/:id/edit" => "products#edit"    #A page that allows the user to edit existing product information
+#patch "products/:id" => "products#update"     #A URL that processes information submitted from the edit page to update a product
+#delete "products/:id" => "products#destroy"   #A URL that allows a product to be deleted
+
+#get "json" => "products#json"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

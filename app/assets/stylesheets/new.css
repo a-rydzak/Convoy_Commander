@@ -1,0 +1,113 @@
+.container{
+
+	
+}
+
+
+form{
+	display: inline-block;
+	vertical-align: top;
+	border:solid;
+	border-color: black;
+	width: 400px;
+	height:300px;
+	margin-left: 100px;
+
+	}
+
+
+.form_row {
+	margin-top: 5px;
+	display: flex;
+}
+
+.form_row label {
+  display: inline-block;
+  width: 75px;
+  margin-right:10px
+  flex:1;
+}
+
+.form_row input{
+	flex:6;
+	
+}
+
+.form_row select{
+flex:1;
+margin-left: 10px;
+
+}
+#password_notice{
+	font-size: 10px;
+}
+input{
+	max-height: 15px;
+	max-width: 200px;
+}
+
+#register{
+	max-height: 30px;
+	max-width: 100px;
+	margin-left: 173px;
+}
+
+
+
+#errors{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+    width: 100%;
+
+}
+
+#errors td, #errors thead {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#errors tr:nth-child(even){
+	background-color: lightgrey;
+}
+
+#errors tr:hover {
+	background-color: darkgray;
+}
+
+#errors thead {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: darkgray;
+    color: white;
+}
+/*.column-layout{
+	margin: 40px auto 0 auto;
+	line-height: 1.65;
+	padding: 20px 50px;
+	max-width: 1300px;
+	background-color: #fff;
+	display: flex;*/
+
+
+
+/*}
+.main-column{
+	order:2;
+	flex:1;
+
+}
+.sidebar-one{
+	order:1;
+	flex:1;
+
+}
+
+.sidebar-two{
+	order:3;
+	flex:1;
+
+}*/
+#errors{
+	max-width: 400px;
+}

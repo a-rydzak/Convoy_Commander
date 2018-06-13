@@ -1,0 +1,32 @@
+<h1>Hi, <%=@user.user_name%>!</h1>
+
+<h1>Your Convoys</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Convoy Title</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @convoy_plans.each do |convoy| %>
+    <tr>
+      <td><a href='/convoy/<%= convoy.id  %>'><%= convoy.title %></a></td>
+    </tr>
+  <% end %>  
+  </tbody>
+</table>
+
+
+<form  action='convoys' method='post'>
+      <h3>Create A Convoy</h3>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <div class="form_row">
+        <label for='name'>Convoy Name</label>
+        <input type="text" name="title" id='name'>
+      </div>  
+
+      <div class="form_row">
+        <input type='submit' value='Make Convoy'>
+      </div>  
+</form>

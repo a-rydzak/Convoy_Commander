@@ -1,0 +1,91 @@
+<div class='container'>
+ 		
+ 		<form action='/users/new' method='post'>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<h3>Register</h3>
+
+
+		<div class="form_row">
+			<label for='name'>Name</label>
+			<input type="text" name="user[user_name]" id='name'>
+		</div>
+
+		<div class="form_row">
+			<label for='email'>Email</label>
+			<input type="text" name="user[email]" id='email'>
+		</div>
+
+
+		<div class="form_row">
+			<label for='password'>Password</label>
+			<input type="password" name="user[password]" id='password'>
+		</div>	
+			
+		<div class="form_row">
+			<label for='password_confirmation'>Confirm Password</label>
+			<input type="password" name="user[password_confirmation]" id='password_confirmation'>
+		</div>	
+
+		<div class="form_row" ">
+			<input type='submit' value='Register' id="register"/>
+		</div>	
+	</form>
+
+	<form action='/login' method='post'>
+			<h3>Login</h3>
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+			<div class="form_row">
+				<label for='email'>Email</label>
+				<input type="text" name="email" id='email'>
+			</div>	
+
+			<div class="form_row">
+				<label for='password'>Password</label>
+				<input type="password" name="password" id='password'>
+			</div>	
+
+			<div class="form_row">
+				<input type='submit' value='Login' id='register'/>
+			</div>	
+		</form>
+	
+	<% if flash[:success]  %>
+		<h4><%= flash[:success]  %></h4>
+	<% end %>  
+
+<% if flash[:errors]  %>
+ <div id='errors'>
+        <table>
+          <thead>
+            <tr>
+              <td>Errors</td>
+            </tr>
+          </thead>
+          <tbody>
+          <% flash[:errors].each do |error|  %>
+            <tr>
+              <td><%= error  %></td>
+            </tr>
+          <% end %>  
+          </tbody>
+        </table>
+    </div>
+<% end %>
+		
+
+
+			  
+		 
+	  
+
+
+
+
+
+
+
+</div>
+
+
+
