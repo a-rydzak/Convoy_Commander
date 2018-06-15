@@ -23,6 +23,7 @@ def specefic_convoy
 	@user=User.find(session[:id])
 	@convoy=ConvoyPlan.find(params[:id])
 	@vehicles=Vehicle.where(convoy_plan_id: params[:id])
+  
 	@plan=Plan.find(params[:id])
 end
 

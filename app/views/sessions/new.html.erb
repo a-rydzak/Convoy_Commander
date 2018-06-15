@@ -1,32 +1,32 @@
 <div class='container'>
  		
- 		<form action='/users/new' method='post'>
+ 		<form class='form1' action='/users/new' method='post'>
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		<h3>Register</h3>
 
 
-		<div class="form_row">
+		<div class="form_row1">
 			<label for='name'>Name</label>
 			<input type="text" name="user[user_name]" id='name'>
 		</div>
 
-		<div class="form_row">
+		<div class="form_row1">
 			<label for='email'>Email</label>
 			<input type="text" name="user[email]" id='email'>
 		</div>
 
 
-		<div class="form_row">
+		<div class="form_row1">
 			<label for='password'>Password</label>
 			<input type="password" name="user[password]" id='password'>
 		</div>	
 			
-		<div class="form_row">
+		<div class="form_row1">
 			<label for='password_confirmation'>Confirm Password</label>
 			<input type="password" name="user[password_confirmation]" id='password_confirmation'>
 		</div>	
 
-		<div class="form_row" ">
+		<div class="form_row1" ">
 			<input type='submit' value='Register' id="register"/>
 		</div>	
 	</form>
@@ -35,17 +35,17 @@
 			<h3>Login</h3>
 			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-			<div class="form_row">
+			<div class="form_row1">
 				<label for='email'>Email</label>
 				<input type="text" name="email" id='email'>
 			</div>	
 
-			<div class="form_row">
+			<div class="form_row1">
 				<label for='password'>Password</label>
 				<input type="password" name="password" id='password'>
 			</div>	
 
-			<div class="form_row">
+			<div class="form_row1">
 				<input type='submit' value='Login' id='register'/>
 			</div>	
 		</form>

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'soldiers/new'
+
+  get 'vehicles/new'
+
 #-------------- Landing Page With Regristration and Login Routes
   root 'sessions#new'
   get 'Convoy-Commander' => 'sessions#new'
@@ -14,6 +18,12 @@ post 'convoys' => 'convoys#create_convoy'
 get 'convoy/:id' => 'convoys#specefic_convoy'
 #-------------- Plans
 post 'plans/:id' => 'plans#update_plan'
+#-------------- Vehicles
+post "vehicles/:id" => "vehicles#create"
+post "vehicle_update/:id" => "vehicles#update"
+
+#-------------- Vehicles
+post "soldiers/:id" => "soldiers#create"
 
 
 

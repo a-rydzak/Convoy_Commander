@@ -44,26 +44,107 @@
       </div>  
 </form>
 
+
+<h1>Add Vehicles</h1>
+<form id='add_vehicle' action='/vehicles/<%=@plan.id%>' method='POST'>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <div class="form_row">
+        <label for='name'>Vehicle Type</label>
+        <input type="text" name="vehicle_type" id='vehicle_type'>
+      </div>  
+
+      <div class="form_row">
+        <label for='name'>Call Sign</label>
+        <input type="text" name="call_sign" id='call_sign' >
+      </div>
+
+     <div class="form_row">
+        <label for='name'>Serial Number</label>
+        <input type="number" name="serial_number" id='serial_number' >
+     </div>
+
+     <div class="form_row">
+        <label for='name'>Order Of Movement </label>
+        <input type="number" name="order_of_movement" id='order_of_movement' >
+    </div>
+
+    <div class="form_row">
+        <label for='name'>Bumper Number / Tag </label>
+        <input type="text" name="bumper_number" id='bumper_number' >
+    </div>
+
+      <div class="form_row">
+        <input type='submit' value='Make Vehicle'>
+      </div>  
+</form>
+
+
 <h1>Your Vehicles</h1>
-<table>
-  <thead>
-    <tr>
-      <td>Type</td>
-      <td>Call Sign</td>
-      <td>Serial Number</td>
-      <td>Order Of Movement Number</td>
-      <td>Bumper Number</td>
-    </tr>
-  </thead>
-  <tbody>
-  <% @vehicles.each do |vehicle| %>
-    <tr><%= vehicle.type %></tr>
-    <tr><%= vehicle.call_sign %></tr>
-    <tr><%= vehicle.serial_number %></tr>
-    <tr><%= vehicle.order_of_movement %></tr>
-    <tr><%= vehicle.bumper_number %></tr>
-  <% end %>  
-  </tbody>
-</table>
+
+<% @vehicles.each do |vehicle| %>
+      <form id='convoy_vehicle' action='/vehicle_update/<%=vehicle.id%>' method='POST'>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            <div class="form_row">
+              <label for='name'>Vehicle Type</label>
+              <input type="text" name="vehicle_type" id='vehicle_type' value='<%=vehicle.vehicle_type%>'>
+            </div>  
+
+            <div class="form_row">
+              <label for='name'>Call Sign</label>
+              <input type="text" name="call_sign" id='call_sign' value='<%=vehicle.call_sign%>'>
+            </div>
+
+           <div class="form_row">
+              <label for='name'>Serial Number</label>
+              <input type="number" name="serial_number" id='serial_number' value='<%=vehicle.serial_number%>'>
+           </div>
+
+           <div class="form_row">
+              <label for='name'>Order Of Movement </label>
+              <input type="number" name="order_of_movement" id='order_of_movement' value='<%=vehicle.order_of_movement%>'>
+          </div>
+
+          <div class="form_row">
+              <label for='name'>Bumper Number / Tag </label>
+              <input type="text" name="bumper_number" id='bumper_number' value='<%=vehicle.bumper_number%>'>
+          </div>
+
+            <div class="form_row">
+              <input type='submit' value='Update Vehicle'>
+            </div>  
+
+                  <form id='add_soldier' action='/soldiers/<%=vehicle.id%>' method='Post'>
+                    <h4>Add A Soldier</h4>
+                    <div class="form_row">
+                        <label for='soldier_name'>Soldier's Name </label>
+                        <input type="text" name="soldier_name" id='soldier_name'>
+                    </div>
+
+                    <div class="form_row">
+                        <label for='rank'>Soldier's Rank</label>
+                        <input type="text" name="rank" id='rank'>
+                    </div>
+
+                                        <div class="form_row">
+                        <label for='position'>Soldier's Position </label>
+                        <input type="text" name="position" id='position'>
+                    </div>
+
+                      <div class="form_row">
+                        <input type='submit' value='Add Soldier'>
+                      </div> 
+                  </form> 
+                <%= vehicle.soldiers do |soldier| %>
+                  <div class="form_row">
+                    <label for='soldier'>Soldier </label>
+                    <p> <%=soldier.rank%> <%=soldier.soldier_name%>: <%=soldier.soldier_position%><p>
+                  </div>
+                <% end %>  
+      </form>
+<% end %>  
+
+
 
 

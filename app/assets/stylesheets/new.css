@@ -4,7 +4,7 @@
 }
 
 
-form{
+.form1{
 	display: inline-block;
 	vertical-align: top;
 	border:solid;
@@ -16,24 +16,24 @@ form{
 	}
 
 
-.form_row {
+.form_row1 {
 	margin-top: 5px;
 	display: flex;
 }
 
-.form_row label {
+.form_row1 label {
   display: inline-block;
   width: 75px;
   margin-right:10px
   flex:1;
 }
 
-.form_row input{
+.form_row1 input{
 	flex:6;
 	
 }
 
-.form_row select{
+.form_row1 select{
 flex:1;
 margin-left: 10px;
 

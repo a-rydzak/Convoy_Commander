@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613174522) do
+ActiveRecord::Schema.define(version: 20180614195602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,12 @@ ActiveRecord::Schema.define(version: 20180613174522) do
   add_index "plans", ["convoy_plan_id"], name: "index_plans_on_convoy_plan_id", using: :btree
 
   create_table "soldiers", force: :cascade do |t|
-    t.string   "name"
+    t.string   "soldier_name"
     t.string   "rank"
     t.string   "position"
     t.integer  "vehicle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "soldiers", ["vehicle_id"], name: "index_soldiers_on_vehicle_id", using: :btree
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20180613174522) do
   end
 
   create_table "vehicles", force: :cascade do |t|
-    t.string   "type"
+    t.string   "vehicle_type"
     t.string   "call_sign"
     t.integer  "serial_number"
     t.integer  "order_of_movement"
