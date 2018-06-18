@@ -1,5 +1,6 @@
 <h1>Hi, <%=@user.user_name%>!</h1>
 
+
 <h1>Your Convoy is, <%=@convoy.title%>!</h1>
 
 <div id='plan'>
@@ -45,6 +46,7 @@
 </form>
 
 
+
 <h1>Add Vehicles</h1>
 <form id='add_vehicle' action='/vehicles/<%=@plan.id%>' method='POST'>
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -78,6 +80,38 @@
         <input type='submit' value='Make Vehicle'>
       </div>  
 </form>
+
+<form  action='/soldiers/<%=@convoy.id%>' method='Post'>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <h4>Add A Soldier</h4>
+          <div class="form_row">
+              <label for='soldier_name'>Soldier's Name </label>
+              <input type="text" name="soldier_name" id='soldier_name'>
+          </div>
+
+          <div class="form_row">
+              <label for='rank'>Soldier's Rank</label>
+              <input type="text" name="rank" id='rank'>
+          </div>
+
+          <div class="form_row">
+              <label for='position'>Soldier's Position </label>
+              <input type="text" name="position" id='position'>
+          </div>
+
+          <div class="form_row">
+              <label for='vehicle_id'>Vehicle Number </label>
+              <select  name="vehicle_id" id='vehicle_id'>
+                <% @vehicles.each do |vehicle| %>
+                  <option value="<%=vehicle.id%>"><%=vehicle.id%></option>
+                <% end %>  
+              </select>
+          </div>
+
+            <div class="form_row">
+              <input type='submit' value='Add Soldier'>
+          </div> 
+</form> 
 
 
 <h1>Your Vehicles</h1>
@@ -114,34 +148,14 @@
             <div class="form_row">
               <input type='submit' value='Update Vehicle'>
             </div>  
-
-                  <form id='add_soldier' action='/soldiers/<%=vehicle.id%>' method='Post'>
-                    <h4>Add A Soldier</h4>
+                <% @soldiers.each do |soldier| %>
+                  <% if soldier.vehicle_id == vehicle.id and soldier.convoy_plan_id == @convoy.id %>
                     <div class="form_row">
-                        <label for='soldier_name'>Soldier's Name </label>
-                        <input type="text" name="soldier_name" id='soldier_name'>
+                      <p> <%=soldier.rank%> <%=soldier.soldier_name%>: <%=soldier.position%><p>
+                      <a href ='/soldier_destroy/<%=soldier.id%>'><button>Delete Soldier</button></a>
                     </div>
-
-                    <div class="form_row">
-                        <label for='rank'>Soldier's Rank</label>
-                        <input type="text" name="rank" id='rank'>
-                    </div>
-
-                                        <div class="form_row">
-                        <label for='position'>Soldier's Position </label>
-                        <input type="text" name="position" id='position'>
-                    </div>
-
-                      <div class="form_row">
-                        <input type='submit' value='Add Soldier'>
-                      </div> 
-                  </form> 
-                <%= vehicle.soldiers do |soldier| %>
-                  <div class="form_row">
-                    <label for='soldier'>Soldier </label>
-                    <p> <%=soldier.rank%> <%=soldier.soldier_name%>: <%=soldier.soldier_position%><p>
-                  </div>
-                <% end %>  
+                  <% end %> 
+              <% end %>  
       </form>
 <% end %>  
 

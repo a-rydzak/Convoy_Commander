@@ -11,6 +11,7 @@
   <% @convoy_plans.each do |convoy| %>
     <tr>
       <td><a href='/convoy/<%= convoy.id  %>'><%= convoy.title %></a></td>
+      <td><a href='/delete_convoy/<%= convoy.id  %>'><button>Delete Convoy</button></a></td>
     </tr>
   <% end %>  
   </tbody>

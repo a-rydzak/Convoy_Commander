@@ -10,7 +10,8 @@ class ConvoysController < ApplicationController
   	convoy_plan=ConvoyPlan.new(title: params[:title])
 
    	if convoy_plan.valid?
-      	 ConvoyPlan.create(title: params[:title], user_id: session[:id])
+      	 convoy=ConvoyPlan.create(title: params[:title], user_id: session[:id])
+         Plan.create(convoy_plan_id: convoy.id)
       	 Permission.create(user_id: session[:id])
      	 redirect_to :back
     else
@@ -22,10 +23,17 @@ class ConvoysController < ApplicationController
 def specefic_convoy
 	@user=User.find(session[:id])
 	@convoy=ConvoyPlan.find(params[:id])
+  @soldiers=ConvoyPlan.find(params[:id]).soldiers
 	@vehicles=Vehicle.where(convoy_plan_id: params[:id])
-  
-	@plan=Plan.find(params[:id])
+	@plan=@convoy.plan
 end
+
+def delete
+  @convoy=ConvoyPlan.find(params[:id])
+  @convoy.destroy
+  redirect_to :back
+end
+
 
 ################# Private Params
   private

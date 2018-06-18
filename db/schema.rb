@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614195602) do
+ActiveRecord::Schema.define(version: 20180614210333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(version: 20180614195602) do
     t.string   "rank"
     t.string   "position"
     t.integer  "vehicle_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "convoy_plan_id"
   end
 
   add_index "soldiers", ["vehicle_id"], name: "index_soldiers_on_vehicle_id", using: :btree

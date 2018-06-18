@@ -3,27 +3,29 @@ Rails.application.routes.draw do
 
 
 
-  get 'soldiers/new'
+get 'soldiers/new'
 
-  get 'vehicles/new'
+get 'vehicles/new'
 
 #-------------- Landing Page With Regristration and Login Routes
-  root 'sessions#new'
-  get 'Convoy-Commander' => 'sessions#new'
-  post 'users/new' => 'sessions#make_user'
-  post 'login'=> 'sessions#login'
-  get 'convoy' => 'convoys#convoy_page'
+root 'sessions#new'
+get 'Convoy-Commander' => 'sessions#new'
+post 'users/new' => 'sessions#make_user'
+post 'login'=> 'sessions#login'
+get 'convoy' => 'convoys#convoy_page'
 #-------------- Convoy Page 
 post 'convoys' => 'convoys#create_convoy'
 get 'convoy/:id' => 'convoys#specefic_convoy'
+get 'delete_convoy/:id' => 'convoys#delete'
 #-------------- Plans
 post 'plans/:id' => 'plans#update_plan'
 #-------------- Vehicles
 post "vehicles/:id" => "vehicles#create"
 post "vehicle_update/:id" => "vehicles#update"
 
-#-------------- Vehicles
+#-------------- Soldiers
 post "soldiers/:id" => "soldiers#create"
+get "soldier_destroy/:id" => "soldiers#delete"
 
 
 
