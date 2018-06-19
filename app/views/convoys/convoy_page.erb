@@ -31,3 +31,23 @@
         <input type='submit' value='Make Convoy'>
       </div>  
 </form>
+
+<% if flash[:errors]  %>
+ <div id='errors'>
+        <table>
+          <thead>
+            <tr>
+              <td>Errors</td>
+            </tr>
+          </thead>
+          <tbody>
+          <% flash[:errors].each do |error|  %>
+            <tr>
+              <td><%= error  %></td>
+            </tr>
+          <% end %>  
+          </tbody>
+        </table>
+    </div>
+<% end %>
+</div>

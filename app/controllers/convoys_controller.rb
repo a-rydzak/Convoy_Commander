@@ -15,7 +15,7 @@ class ConvoysController < ApplicationController
       	 Permission.create(user_id: session[:id])
      	 redirect_to :back
     else
-      	flash[:errors]=product.errors.full_messages
+      	flash[:errors]=convoy_plan.errors.full_messages
       	redirect_to :back
    	end
   end

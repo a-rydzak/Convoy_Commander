@@ -17,12 +17,43 @@ class User < ActiveRecord::Base
    
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 
-  validates :user_name, presence: true, length: { in: 2..20 }, uniqueness: { case_sensitive: false }
+  validates :user_name, presence: true, length: { in: 2..30 }  #, uniqueness: { case_sensitive: false }
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: EMAIL_REGEX }
   validates :password, confirmation: true, format: { with: PASSWORD_REGEX2 }
 
+  
+  # def full_name #Custom Class and Instance Methods
+  #   "#{self.first_name} #{self.last_name}"
+  # end
+  
+  # # creating a custom class method. self refers to the User model
+  # def self.average_age
+  #     self.sum(:age) / self.count
+  # end
+  
+
+  
+  
+
+  before_save :downcase_email
+  # after_update :successfully_updated
+  # after_create :successfully_created
+
+  private
+    def downcase_email
+      self.email.downcase!
+    end
+    # def successfully_created
+    #   puts "Successfully created a new user"
+    # end
+    # def successfully_updated
+    #   puts "Successfully updated a existing user"
+    # end
+  
+  # this callback will run after creating a new user
 
 
+#-------------------------------------------------Notes Start Here
 # -------------------------Bcrypt
 # u = User.new(name: 'oscar', email: 'o@gmail.com', password: '', password_confirmation: 'nomatch')
 # u.save                                                           # => false, password required
