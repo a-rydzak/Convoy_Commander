@@ -1,5 +1,5 @@
 <h1>Hi, <%=@user.user_name%>!</h1>
- u
+ 
 
 <h1>Your Convoy is, <%=@convoy.title%>!</h1>
 
@@ -81,6 +81,27 @@
       </div>  
 </form>
 
+<% if flash[:errors]  %>
+ <div id='errors'>
+        <table>
+          <thead>
+            <tr>
+              <td>Errors</td>
+            </tr>
+          </thead>
+          <tbody>
+          <% flash[:errors].each do |error|  %>
+            <tr>
+              <td><%= error  %></td>
+            </tr>
+          <% end %>  
+          </tbody>
+        </table>
+    </div>
+<% end %>
+</div>
+
+
 <form  action='/soldiers/<%=@convoy.id%>' method='Post'>
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <h4>Add A Soldier</h4>
@@ -100,10 +121,10 @@
           </div>
 
           <div class="form_row">
-              <label for='vehicle_id'>Vehicle Number </label>
+              <label for='vehicle_id'>Vehicle Call Sign </label>
               <select  name="vehicle_id" id='vehicle_id'>
                 <% @vehicles.each do |vehicle| %>
-                  <option value="<%=vehicle.id%>"><%=vehicle.id%></option>
+                  <option value="<%=vehicle.id%>"><%=vehicle.call_sign%></option>
                 <% end %>  
               </select>
           </div>

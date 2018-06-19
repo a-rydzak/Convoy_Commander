@@ -5,8 +5,7 @@ class ConvoyPlan < ActiveRecord::Base
   has_many :soldiers, dependent: :destroy
   # Columns include title, user_id, created_at, updated_at
 
-  validates :title, presence: true, length: { in: 2..30 } 
-  validates :user_id, presence: true
+  validates :title, presence: true, length: { in: 2..30} 
  
 
 

@@ -15,7 +15,8 @@ class ConvoysController < ApplicationController
       	 Permission.create(user_id: session[:id])
      	 redirect_to :back
     else
-      	flash[:errors]=convoy_plan.errors.full_messages
+      	# flash[:errors]="Convoy title must be between 2-20 characters long."
+        flash[:errors]=convoy_plan.errors.full_messages
       	redirect_to :back
    	end
   end
