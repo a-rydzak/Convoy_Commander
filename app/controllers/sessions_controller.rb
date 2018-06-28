@@ -6,10 +6,6 @@ class SessionsController < ApplicationController
 		if(!session[:id])
 			session[:id]=nil
 		end
-
-	   if(!session[:pid])  #this is the permission id that will be used to identify the permission between users
-			session[:pid]=nil #I can do this or add multiple information passes in a route .../:id/:pid
-		end
 	end
 
 

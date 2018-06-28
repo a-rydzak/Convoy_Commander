@@ -36,7 +36,7 @@ get "user/:id" => "users#show"
 
 #-------------- Permissions
 get "permission_start/:id" => "permissions#update"
-get "permission_view/:id" => "permissions#update_view"
+get "permission_create/:id/:vuid" => "permissions#update_create_view"
 
 
 

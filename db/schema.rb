@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627174137) do
+ActiveRecord::Schema.define(version: 20180628164543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180627174137) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "convoy_plan_id"
+    t.string   "permission_view"
   end
 
   add_index "permissions", ["user_id"], name: "index_permissions_on_user_id", using: :btree

@@ -1,10 +1,10 @@
 <h1><%= @viewed_user.user_name%></h1>
 
-<% if @permission.empty? %>
-	<a href='/permission_start/<%=@viewed_user.id%>'><button>Start Granting <%= @viewed_user.user_name%> permissions</button></a>
-<% end %>
 
-<% if !@permission.empty? %>
+<a href='/permission_start/<%=@viewed_user.id%>'><button>Update Convoy Permission Display Below</button></a>
+
+
+
 		<h1><%= @viewed_user.user_name%> can now see all your convoys, allow further permissions below</h1>
 		<table>
 		  <thead>
@@ -26,4 +26,3 @@
 			<% end %>
 		  </tbody>
 		</table>
-<% end %>
