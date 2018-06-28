@@ -1,0 +1,29 @@
+<h1><%= @viewed_user.user_name%></h1>
+
+<% if @permission.empty? %>
+	<a href='/permission_start/<%=@viewed_user.id%>'><button>Start Granting <%= @viewed_user.user_name%> permissions</button></a>
+<% end %>
+
+<% if !@permission.empty? %>
+		<h1><%= @viewed_user.user_name%> can now see all your convoys, allow further permissions below</h1>
+		<table>
+		  <thead>
+		    <tr>
+		      <td>Convoy Name</td>
+		      <td>View Convoy</td>
+		      <td>Edit Convoy OPORD</td>
+		      <td>Edit Convoy Vehicles</td>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @user_convoys.each do |convoy|%>
+			<tr>
+			 		<td><a href='/convoy/<%= convoy.id  %>'><%= convoy.title %></a></td>
+			 		<td><a href='/permission_view/<%= convoy.id %>'><button>Allow user to view convoy</button></a></td>
+			 		<td>A</td>
+			 		<td>A</td>
+			</tr>
+			<% end %>
+		  </tbody>
+		</table>
+<% end %>

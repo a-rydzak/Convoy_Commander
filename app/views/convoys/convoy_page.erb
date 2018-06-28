@@ -31,23 +31,41 @@
         <input type='submit' value='Make Convoy'>
       </div>  
 
-<% if flash[:errors]  %>
- <div id='errors'>
-        <table>
-          <thead>
-            <tr>
-              <td>Errors</td>
-            </tr>
-          </thead>
-          <tbody>
-          <% flash[:errors].each do |error|  %>
-            <tr>
-              <td><%= error  %></td>
-            </tr>
-          <% end %>  
-          </tbody>
-        </table>
-    </div>
-<% end %>
-</div>
+  <% if flash[:errors]  %>
+   <div id='errors'>
+          <table>
+            <thead>
+              <tr>
+                <td>Errors</td>
+              </tr>
+            </thead>
+            <tbody>
+            <% flash[:errors].each do |error|  %>
+              <tr>
+                <td><%= error  %></td>
+              </tr>
+            <% end %>  
+            </tbody>
+          </table>
+      </div>
+  <% end %>
+  </div>
 </form>
+
+<h1>Other Users</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @all_users.each do |user| %>
+    <% if user.id != @user.id %>
+      <tr>
+        <td><a href='/user/<%= user.id  %>'><%= user.user_name %></a></td>
+      </tr>
+    <% end %> 
+  <% end %>  
+  </tbody>
+</table>

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'permissions/new'
+
+get 'users/new'
+
 get 'soldiers/new'
 
 get 'vehicles/new'
@@ -26,6 +30,13 @@ post "vehicle_update/:id" => "vehicles#update"
 #-------------- Soldiers
 post "soldiers/:id" => "soldiers#create"
 get "soldier_destroy/:id" => "soldiers#delete"
+
+#-------------- Users
+get "user/:id" => "users#show"
+
+#-------------- Permissions
+get "permission_start/:id" => "permissions#update"
+get "permission_view/:id" => "permissions#update_view"
 
 
 

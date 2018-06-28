@@ -1,8 +1,10 @@
 class ConvoysController < ApplicationController
-
+  before_action :authenticate_login
+  
   def convoy_page
   	@user=User.find(session[:id])
   	@convoy_plans=ConvoyPlan.where(user_id: session[:id])
+    @all_users=User.all()
   end
 
   def create_convoy
@@ -15,7 +17,7 @@ class ConvoysController < ApplicationController
       	 Permission.create(user_id: session[:id])
      	 redirect_to :back
     else
-      	# flash[:errors]="Convoy title must be between 2-20 characters long."
+      	# flash[:errors]=["Convoy title must be between 2-20 characters long."]
         flash[:errors]=convoy_plan.errors.full_messages
       	redirect_to :back
    	end
@@ -37,13 +39,13 @@ end
 
 
 ################# Private Params
-  private
-   # def ConvoyPlan_params
-   #    params.require(:ConvoyPlan).permit(:title)
-   # end 
 
-   # def Permission_params
-   #    params.require(:Permission).permit(:title)
-   # end 
+  private
+    def authenticate_login
+      if session[:id] == nil
+        flash[:errors] = ["You must be logged in to access this section"]
+        redirect_to :root
+      end
+    end
 
 end
