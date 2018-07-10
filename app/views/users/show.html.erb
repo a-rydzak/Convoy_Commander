@@ -19,9 +19,12 @@
 		  	<% @user_convoys.each do |convoy|%>
 			<tr>
 			 		<td><a href='/convoy/<%= convoy.id  %>'><%= convoy.title %></a></td>
+
 			 		<td><a href='/permission_view/<%= convoy.id %>'><button>Allow user to view convoy</button></a></td>
-			 		<td>A</td>
-			 		<td>A</td>
+
+			 		<td><a href='/permission_view/<%= convoy.id %>'><button>Allow user to edit convoy</button></a></td>
+			 		
+			 		<td><a href='/permission_view/<%= convoy.id %>'><button>Allow user to edit convoy vehicles</button></a></td>
 			</tr>
 			<% end %>
 		  </tbody>
